@@ -6,12 +6,12 @@ const car = document.getElementById("car");
 const wheel1 = document.getElementById("wheel1");
 const wheel2 = document.getElementById("wheel2");
 
-function carMovement1() {
+function carMovement() {
   changeLightColor();
-  checkCarMovement1();
+  checkCarMovement();
 }
 
-setInterval(carMovement1, 8000);
+setInterval(carMovement, 8000);
 
 function changeLightColor() {
   if (redLight.classList.contains("active")) {
@@ -29,7 +29,7 @@ function changeLightColor() {
   }
 }
 
-function checkCarMovement1() {
+function checkCarMovement() {
   if (redLight.classList.contains("active")) {
     // console.log("This is triggered!");
     car.style.animation = "none";
@@ -44,6 +44,12 @@ function checkCarMovement1() {
     // car.style.animation = "right-to-center 7s linear 1";
   }
 }
+
+// function checkCarMovement2 {
+//   if (car.style.transform == "translate(-1100px, -20px)") {
+
+//   }
+// }
 
 // // Move the car (reference: w3schools)
 // function moveCar() {
