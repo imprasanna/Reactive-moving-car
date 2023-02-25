@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car AI project</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <!-- Traffic light -->
+    <div class="traffic-light">
+      <div class="traffic-light__light-holder">
+        <div class="traffic-light__light-holder--red-light" id="redLight"></div>
+        <div
+          class="traffic-light__light-holder--green-light"
+          id="greenLight"
+        ></div>
+        <div
+          class="traffic-light__light-holder--yellow-light active"
+          id="yellowLight"
+        ></div>
+      </div>
+      <div class="traffic-light__stand">
+        <div class="traffic-light__stand--top-part"></div>
+        <div class="traffic-light__stand--bottom-part"></div>
+      </div>
+    </div>
+
+    <!-- Road -->
+    <div class="road">
+      <div class="road__horizontal-signs">
+        <div class="road__horizontal-signs--sign1 horizontal-sign"></div>
+        <div class="road__horizontal-signs--sign2 horizontal-sign"></div>
+        <div class="road__horizontal-signs--sign3 horizontal-sign"></div>
+        <div class="road__horizontal-signs--sign4 horizontal-sign"></div>
+      </div>
+      <div class="road__crosswalk">
+        <div class="road_crosswalk--sign1 vertical-sign"></div>
+        <div class="road_crosswalk--sign2 vertical-sign"></div>
+        <div class="road_crosswalk--sign3 vertical-sign"></div>
+        <div class="road_crosswalk--sign4 vertical-sign"></div>
+        <div class="road_crosswalk--sign5 vertical-sign"></div>
+        <div class="road_crosswalk--sign6 vertical-sign"></div>
+      </div>
+    </div>
+
+    <!-- Car -->
+    <div class="car" id="car">
+      <div class="car__hood">
+        <div class="car__hood--window1 window"></div>
+        <div class="car__hood--window2 window"></div>
+      </div>
+      <div class="car__body">
+        <div class="car__body--door car-door">
+          <div class="car-door__knob"></div>
+        </div>
+        <div class="car__body--headlight1"></div>
+        <div class="car__body--headlight2"></div>
+      </div>
+      <div class="car__shadow"></div>
+      <div class="car__wheel">
+        <div class="car__wheel--wheel1 wheel" id="wheel1">
+          <div class="mark1 wheel-mark"></div>
+          <div class="mark2 wheel-mark"></div>
+          <div class="mark3 wheel-mark"></div>
+          <div class="mark4 wheel-mark"></div>
+        </div>
+        <div class="car__wheel--wheel2 wheel" id="wheel2">
+          <div class="mark1 wheel-mark"></div>
+          <div class="mark2 wheel-mark"></div>
+          <div class="mark3 wheel-mark"></div>
+          <div class="mark4 wheel-mark"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,299 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background-color: #dcc6e7;
+}
+
+.traffic-light {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(53px);
+}
+.traffic-light__light-holder {
+  height: 150px;
+  width: 60px;
+  border-radius: 10px 10px 0 0;
+  background-image: linear-gradient(-20deg, #333 0%, #999 20%, #333 60%, #999 100%);
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.traffic-light__light-holder--red-light {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: rgba(175, 169, 169, 0.3843137255);
+  border: 2px solid black;
+}
+.traffic-light__light-holder--green-light {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: rgba(175, 169, 169, 0.3843137255);
+  border: 2px solid black;
+}
+.traffic-light__light-holder--yellow-light {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: rgba(175, 169, 169, 0.3843137255);
+  border: 2px solid black;
+}
+.traffic-light__light-holder--red-light.active {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: red;
+  border: 2px solid black;
+}
+.traffic-light__light-holder--green-light.active {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #18b418;
+  border: 2px solid black;
+}
+.traffic-light__light-holder--yellow-light.active {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: yellow;
+  border: 2px solid black;
+}
+.traffic-light__stand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.traffic-light__stand--top-part {
+  height: 110px;
+  width: 15px;
+  background-image: linear-gradient(to bottom, #999999, #333333);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background-image: linear-gradient(to right, #333 0%, #999 15%, #333 80%);
+}
+.traffic-light__stand--bottom-part {
+  height: 20px;
+  width: 100px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, #999999, #333333);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  background-image: linear-gradient(to right, #333 0%, #999 20%, #333 80%, #999 95%);
+}
+
+.road {
+  z-index: -100;
+  border: 1px solid black;
+  width: 120%;
+  height: 300px;
+  position: absolute;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, #999999, #333333);
+  transform: skewX(-20deg) translate(-100px);
+}
+.road__horizontal-signs {
+  position: relative;
+}
+.road__horizontal-signs--sign2 {
+  margin-left: 500px;
+}
+.road__horizontal-signs--sign3 {
+  margin-left: 800px;
+}
+.road__horizontal-signs--sign4 {
+  margin-left: 1100px;
+}
+.road__horizontal-signs .horizontal-sign {
+  border: 0.5px solid black;
+  height: 20px;
+  width: 120px;
+  background-color: white;
+  position: absolute;
+  top: 150px;
+  transform: translateY(-50%);
+  left: 90px;
+}
+.road__crosswalk {
+  position: relative;
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  left: 300px;
+}
+.road__crosswalk .vertical-sign {
+  background-color: white;
+  width: 200px;
+  height: 30px;
+  border: 1px solid black;
+}
+
+.car {
+  position: absolute;
+  bottom: 200px;
+  right: 200px;
+  z-index: 1000;
+  transform: translate(280px, 150px);
+  animation: car-moving 6s linear infinite;
+}
+.car__hood {
+  height: 180px;
+  width: 250px;
+  background-color: #9C2535;
+  border-radius: 60px 30px 0 0;
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-evenly;
+}
+.car__hood .window {
+  background-color: #E2F0F6;
+  border: 10px solid #BF6D7B;
+  width: 90px;
+  height: 80px;
+  transform: translateY(15px);
+}
+.car__hood--window1 {
+  border-radius: 40px 10px 10px 10px;
+}
+.car__hood--window2 {
+  border-radius: 10px 20px 10px 10px;
+}
+.car__body {
+  background-color: #9C2535;
+  width: 400px;
+  height: 150px;
+  position: relative;
+  right: 130px;
+  bottom: 75px;
+  border-radius: 200px 90px 0 0;
+  border: 2px solid black;
+  overflow: hidden;
+  border-top: 0;
+}
+.car__body .car-door {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border: 2px solid #B57A84;
+  left: 145px;
+  top: 15px;
+  border-radius: 40% 10% 10% 10%;
+}
+.car__body .car-door__knob {
+  width: 30px;
+  height: 12px;
+  border-radius: 30%;
+  background-color: #E8E6E6;
+  border: 1px solid lightcoral;
+  position: relative;
+  left: 60px;
+  top: 10px;
+}
+.car__body--headlight1 {
+  position: absolute;
+  background-color: #8282c9;
+  height: 30px;
+  width: 50px;
+  border-radius: 10px;
+  top: 50px;
+  left: 8px;
+  border: 1px solid black;
+}
+.car__body--headlight2 {
+  position: absolute;
+  background-color: #8282c9;
+  height: 30px;
+  width: 50px;
+  border-radius: 10px;
+  top: 50px;
+  right: -30px;
+  border: 1px solid black;
+}
+.car__wheel {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  transform: translate(-100px, -165px);
+}
+.car__wheel--wheel1 {
+  position: relative;
+  right: 50px;
+}
+.car__wheel .wheel {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  border: 20px solid black;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.car__wheel .wheel .wheel-mark {
+  background-color: black;
+  position: absolute;
+}
+.car__wheel .wheel .mark1, .car__wheel .wheel .mark2 {
+  width: 10px;
+  height: 25px;
+}
+.car__wheel .wheel .mark3, .car__wheel .wheel .mark4 {
+  width: 25px;
+  height: 10px;
+}
+.car__wheel .wheel .mark1 {
+  margin-bottom: 45px;
+}
+.car__wheel .wheel .mark2 {
+  margin-top: 45px;
+}
+.car__wheel .wheel .mark3 {
+  margin-left: 45px;
+}
+.car__wheel .wheel .mark4 {
+  margin-right: 45px;
+}
+.car__wheel #wheel1 {
+  animation: wheels-rotation 2s infinite linear;
+}
+.car__wheel #wheel2 {
+  animation: wheels-rotation 2s infinite linear;
+}
+.car__shadow {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 30px;
+  width: 110%;
+  border-radius: 40% 40%;
+  position: relative;
+  right: 150px;
+  bottom: 40px;
+}
+
+@keyframes wheels-rotation {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes car-moving {
+  from {
+    transform: translate(1000px, 200px);
+  }
+  to {
+    transform: translate(-1100px, -20px);
+  }
+}/*# sourceMappingURL=style.css.map */
