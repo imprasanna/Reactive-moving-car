@@ -4,12 +4,26 @@ const greenLight = document.getElementById("greenLight");
 const car = document.getElementById("car");
 const wheel1 = document.getElementById("wheel1");
 const wheel2 = document.getElementById("wheel2");
+let carReadyAudio = new Audio("./audio/car-ready.mp3");
+let carMovingAudio = new Audio("./audio/car-moving.mp3");
+
+function carMoving() {
+  carMovingAudio.play();
+  carMovingAudio.currentTime = 2;
+}
+
+function carStopping() {
+  carMovingAudio.pause();
+  carMovingAudio.currentTime = 0;
+}
 
 function carMovement() {
   changeLightColor();
   checkCarMovement();
 }
 
+window.setTimeout(carMoving, 10);
+window.setTimeout(carStopping, 8000);
 setInterval(carMovement, 8000);
 
 // Change the light-color in traffic-light
@@ -36,11 +50,21 @@ function checkCarMovement() {
     car.style.animation = "none";
     wheel1.style.animation = "none";
     wheel2.style.animation = "none";
+    carReadyAudio.pause();
+    carMovingAudio.pause();
+    carMovingAudio.currentTime = 0;
+    carReadyAudio.currentTime = 0;
+  } else if (yellowLight.classList.contains("active")) {
+    carMovingAudio.pause();
+    carMovingAudio.currentTime = 0;
+    carReadyAudio.play();
   } else if (greenLight.classList.contains("active")) {
     // console.log("No, this is triggered!");
     car.style.animation = "center-to-left 3s linear 1";
     wheel1.style.animation = "wheels-rotation 1.5s linear infinite";
     wheel2.style.animation = "wheels-rotation 1.5s linear infinite";
+    carMovingAudio.play();
+    carMovingAudio.currentTime = 2;
     // if (yellowLight.classList.contains("active")) {
     //   car.style.animation = "right-to-center 7s linear 1";
     //   wheel1.style.animation = "wheels-rotation 1.5s linear infinite";
