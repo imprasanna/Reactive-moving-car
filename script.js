@@ -36,7 +36,10 @@ function carMovement() {
 
 setTimeout(carMoving, 10);
 setTimeout(carStopping, 8000);
-setInterval(carMovement, 5000);
+let id2 = setTimeout(moveCar, 1000);
+setTimeout(moveCar, 3000);
+setTimeout(clearInterval(id2), 5000);
+setInterval(carMovement, 7000);
 
 // Change the light-color in traffic-light
 function changeLightColor() {
