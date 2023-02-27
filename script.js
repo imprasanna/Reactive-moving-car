@@ -22,9 +22,21 @@ function carMovement() {
   checkCarMovement();
 }
 
-window.setTimeout(carMoving, 10);
-window.setTimeout(carStopping, 8000);
-setInterval(carMovement, 8000);
+// // Add an event listener for the "canplaythrough" event
+// carMovingAudio.addEventListener("canplaythrough", function () {
+//   // Code to execute when the audio is loaded and can be played
+//   console.log("Audio is loaded and can be played");
+// });
+
+// // Check if the audio is already loaded
+// if (carMovingAudio.readyState >= 4) {
+//   // Code to execute when the audio is already loaded
+//   console.log("Audio is already loaded");
+// }
+
+setTimeout(carMoving, 10);
+setTimeout(carStopping, 8000);
+setInterval(carMovement, 5000);
 
 // Change the light-color in traffic-light
 function changeLightColor() {
@@ -65,6 +77,9 @@ function checkCarMovement() {
     wheel2.style.animation = "wheels-rotation 1.5s linear infinite";
     carMovingAudio.play();
     carMovingAudio.currentTime = 2;
+    let id = setTimeout(moveCar, 1000);
+    setTimeout(moveCar, 3000);
+    setTimeout(clearInterval(id), 5000);
     // if (yellowLight.classList.contains("active")) {
     //   car.style.animation = "right-to-center 7s linear 1";
     //   wheel1.style.animation = "wheels-rotation 1.5s linear infinite";
@@ -80,23 +95,21 @@ function checkCarMovement() {
 //   }
 // }
 
-// // Move the car (reference: w3schools)
-// function moveCar() {
-//   let id = null;
-//   const car = document.getElementById("car");
-//   let pos = 0;
-//   if (redLight.classList.contains("active")) {
-//     clearInterval(id);
-//     wheel1.style.animation = "none";
-//     wheel2.style.animation = "none";
-//   }
-//   wheel1.style.animation = "wheels-rotation 2.5s infinite linear";
-//   wheel2.style.animation = "wheels-rotation 2s infinite linear";
-//   id = setInterval(frame, 5);
-//   function frame() {
-//     if (pos < 800) {
-//       pos++;
-
-//     }
-//   }
-// }
+function moveCar() {
+  let t = setInterval(frame, 1);
+  let pos = -300;
+  car.style.animation = none;
+  car.classList.add("car-animation2");
+  if (greenLight.classList.contains("active")) {
+    setInterval(frame, 1);
+  }
+  function frame() {
+    pos++;
+    car.style.right = pos + "px";
+    if (pos > 550 && pos < 600 && redLight.classList.contains("active")) {
+      clearInterval(t);
+      // wheel1.style.animation = "none";
+      // wheel2.style.animation = "none";
+    }
+  }
+}
