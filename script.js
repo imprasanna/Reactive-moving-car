@@ -60,12 +60,12 @@ function checkCarMovement() {
   if (redLight.classList.contains("active")) {
     // console.log("This is triggered!");
     car.style.animation = "none";
-    wheel1.style.animation = "none";
-    wheel2.style.animation = "none";
-    carReadyAudio.pause();
-    carMovingAudio.pause();
-    carMovingAudio.currentTime = 0;
-    carReadyAudio.currentTime = 0;
+    // wheel1.style.animation = "none";
+    // wheel2.style.animation = "none";
+    // carReadyAudio.pause();
+    // carMovingAudio.pause();
+    // carMovingAudio.currentTime = 0;
+    // carReadyAudio.currentTime = 0;
   } else if (yellowLight.classList.contains("active")) {
     carMovingAudio.pause();
     carMovingAudio.currentTime = 0;
@@ -108,8 +108,12 @@ function moveCar() {
     car.style.right = pos + "px";
     if (pos > 550 && pos < 600 && redLight.classList.contains("active")) {
       clearInterval(t);
-      // wheel1.style.animation = "none";
-      // wheel2.style.animation = "none";
+      wheel1.style.animation = "none";
+      wheel2.style.animation = "none";
+      carReadyAudio.pause();
+      carMovingAudio.pause();
+      carMovingAudio.currentTime = 0;
+      carReadyAudio.currentTime = 0;
     }
   }
 }
