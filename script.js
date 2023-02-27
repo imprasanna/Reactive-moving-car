@@ -34,12 +34,23 @@ function carMovement() {
 //   console.log("Audio is already loaded");
 // }
 
+let id3 = setTimeout(changeCarColor, 18000);
+setTimeout(changeCarColor, 18000);
+setTimeout(clearInterval(id3), 15000);
+
+for (let time = 32; time < 32 * 5; time += 14) {
+  ID = setTimeout(changeCarColor, time * 1000);
+  setTimeout(changeCarColor, time * 1000);
+  setTimeout(clearInterval(ID), 15000);
+}
+
+setTimeout(displayCar, 4400);
 setTimeout(carMoving, 10);
 setTimeout(carStopping, 8000);
 let id2 = setTimeout(moveCar, 1000);
 setTimeout(moveCar, 3000);
 setTimeout(clearInterval(id2), 5000);
-setInterval(carMovement, 7000);
+setInterval(carMovement, 5000);
 
 // Change the light-color in traffic-light
 function changeLightColor() {
@@ -103,9 +114,9 @@ function moveCar() {
   let pos = -300;
   car.style.animation = none;
   car.classList.add("car-animation2");
-  if (greenLight.classList.contains("active")) {
-    setInterval(frame, 1);
-  }
+  // if (greenLight.classList.contains("active")) {
+  setInterval(frame, 1);
+  // }
   function frame() {
     pos++;
     car.style.right = pos + "px";
@@ -119,4 +130,21 @@ function moveCar() {
       carReadyAudio.currentTime = 0;
     }
   }
+}
+
+function displayCar() {
+  car.classList.remove("invisible");
+}
+
+function changeCarColor() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  let carHood = document.getElementById("car-hood");
+  let carBody = document.getElementById("car-body");
+
+  // Return the random color in RGB format
+  let randomColor = "rgb(" + r + ", " + g + ", " + b + ")";
+  carHood.style.backgroundColor = randomColor;
+  carBody.style.backgroundColor = randomColor;
 }

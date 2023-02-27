@@ -171,6 +171,10 @@ body {
     transform: translate(-1100px, -20px);
   }
 }
+.invisible {
+  display: none;
+}
+
 .car {
   position: absolute;
   bottom: 250px;
