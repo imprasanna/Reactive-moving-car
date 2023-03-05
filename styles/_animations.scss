@@ -1,0 +1,38 @@
+@keyframes right-to-center {
+    from {
+        position: absolute;
+        bottom: 200px;
+        right: 100px;
+    }
+    to {
+        transform: translate(-1000px, -20px);
+    }
+}
+
+@keyframes center-to-left {
+    from {
+        position: absolute;
+        bottom: 250px;
+        right: 650px;
+    }
+
+    to {
+        transform: translate(-1100px, -20px);
+    }
+}
+
+@keyframes wheels-rotation {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes car-moving {
+    from {
+        transform: translate(1000px, 200px);
+    }
+
+    to {
+        transform: translate(-1100px, -20px);
+    }
+}

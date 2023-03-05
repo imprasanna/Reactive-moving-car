@@ -1,62 +1,7 @@
-$road-color: linear-gradient(to bottom, #999999, #333333);
-$car-hood-color: #9C2535;
-$car-body-color: #9C2535;
-$window-color: #E2F0F6;
-// #6a1621
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    overflow: hidden;
-    background-color: #dcc6e7;
-}
-
-@mixin wheelDetails {
-    width: 120px;
-    height: 120px;
-    border-radius: 100%;
-    border: 20px solid black;
-    background-color: grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-}
-
-@mixin wheelMarks {
-    .wheel-mark {
-        background-color: black;
-        position: absolute;
-    }
-
-    .mark1, .mark2 {
-        width: 10px;
-        height: 25px;
-    }
-
-    .mark3, .mark4 {
-        width: 25px;
-        height: 10px;
-    }
-
-    .mark1 {
-        margin-bottom: 45px;
-    }
-
-    .mark2 {
-        margin-top: 45px;
-    }
-
-    .mark3 {
-        margin-left: 45px;
-    }
-
-    .mark4 {
-        margin-right: 45px;
-    }
-}
+@import "_variables.scss";
+@import "_functions.scss";
+@import "_animations.scss";
+@import "_body.scss";
 
 // For traffic-light
 .traffic-light {
@@ -221,29 +166,6 @@ body {
     bottom: 250px;
 }
 
-@keyframes right-to-center {
-    from {
-        position: absolute;
-        bottom: 200px;
-        right: 100px;
-    }
-    to {
-        transform: translate(-1000px, -20px);
-    }
-}
-
-@keyframes center-to-left {
-    from {
-        position: absolute;
-        bottom: 250px;
-        right: 650px;
-    }
-
-    to {
-        transform: translate(-1100px, -20px);
-    }
-}
-
 .invisible {
     display: none;
 }
@@ -369,22 +291,5 @@ body {
         position: relative;
         right: 150px;
         bottom: 40px;
-    }
-}
-
-// Animations
-@keyframes wheels-rotation {
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-@keyframes car-moving {
-    from {
-        transform: translate(1000px, 200px);
-    }
-
-    to {
-        transform: translate(-1100px, -20px);
     }
 }
